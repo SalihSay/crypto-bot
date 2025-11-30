@@ -1,0 +1,29 @@
+name: Crypto Bot Scanner
+
+on:
+  schedule:
+    # Her 15 dakikada bir çalıştır (00, 15, 30, 45 geçe)
+    - cron: '0,15,30,45 * * * *'
+  workflow_dispatch: # Manuel tetikleme butonu ekler (Test için)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Trading Bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
