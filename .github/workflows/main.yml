@@ -13,10 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Set up Python to resolve dependencies
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          # Kütüphanelerin istediği minimum sürümü kullanıyoruz
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
