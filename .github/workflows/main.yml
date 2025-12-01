@@ -3,7 +3,7 @@ name: Crypto Bot Scanner
 on:
   schedule:
     # Her 15 dakikada bir çalıştır (00, 15, 30, 45 geçe)
-    - cron: '0,15,30,45 * * * *'
+    - cron: '5,20,35,50 * * * *'
   workflow_dispatch: # Manuel tetikleme butonu ekler (Test için)
 
 jobs:
