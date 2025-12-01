@@ -18,7 +18,7 @@ COINS = [
     'ARB/USDT', 'ENA/USDT'
 ]
 
-TIMEFRAMES = ['15m', '1h', '4h'] 
+TIMEFRAMES = ['1h', '4h'] 
 PIVOT_LEFT = 10 
 PIVOT_RIGHT = 10
 
