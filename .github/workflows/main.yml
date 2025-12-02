@@ -2,9 +2,9 @@ name: Crypto Bot Scanner
 
 on:
   schedule:
-    # Her 15 dakikada bir çalıştır (00, 15, 30, 45 geçe)
+    # Sunucu yoğunluğunu atlatmak için her saatin 5, 20, 35 ve 50. dakikalarında çalışır.
     - cron: '5,20,35,50 * * * *'
-  workflow_dispatch: # Manuel tetikleme butonu ekler (Test için)
+  workflow_dispatch: # Manuel tetikleme butonu (Test için)
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python to resolve dependencies
         uses: actions/setup-python@v4
         with:
-          # Kütüphanelerin istediği minimum sürümü kullanıyoruz
+          # Kütüphane hatalarını önlemek için Python 3.12 kullanıyoruz
           python-version: '3.12'
 
       - name: Install dependencies
@@ -25,6 +25,7 @@ jobs:
 
       - name: Run Trading Bot
         env:
+          # BURASI DÜZELTİLDİ: $ ve {{ arasında boşluk yok!
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: $ {{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python main.py
