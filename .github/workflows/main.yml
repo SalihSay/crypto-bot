@@ -26,5 +26,5 @@ jobs:
       - name: Run Trading Bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${ -5098978804 }}
         run: python main.py
